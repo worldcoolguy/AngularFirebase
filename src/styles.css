@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    background-color: #5fcf80; 
+    color: #FFF; 
+}
+
+.container {
+    margin: 0 auto; 
+    width: 50%; 
+}
+
+ul li {
+    font-size: 22px; 
+}

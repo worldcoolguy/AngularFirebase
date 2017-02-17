@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Question 1</h2>
+  <h3>Which Company Was Founded First?</h3>
+  <ul>
+    <li *ngFor="let item of items | async">
+      <span>{{item.$value}}</span>
+    </li>
+  </ul>
+  <h1>Current Number of Guesses: {{numberOfTries}}</h1><hr>
+  <input type="text" [(ngModel)]="newItem" (keydown.enter)="checkEntry()" placeholder="Can You Guess?">
+  <h1 *ngFor="let item of score | async">Last Number Of Guesses: {{item.$value}}</h1>
+</div>
