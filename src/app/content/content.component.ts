@@ -20,6 +20,9 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     this.items.forEach(element => {
+      // check to see if input value 
+      // matches anwser value stored 
+      // in the database
       for (let i = 0; i < element.length; i++) {
         if (element[3].$value == this.newItem.toLowerCase() && this.newItem !== '') {
           this.score.remove(''); 
@@ -29,6 +32,7 @@ export class ContentComponent implements OnInit {
         } else {
           this.newItem = ''; 
         }
+        // remove empty values 
         if (element[i].$value == '') {
           this.items.remove(element[i]); 
         }
