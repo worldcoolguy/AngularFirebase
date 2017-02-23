@@ -1,14 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* TAGS */
+
 html, body {
     background-color: #5fcf80; 
     color: #FFF; 
+    margin: 0; 
+    padding: 0; 
 }
+
+ul li {
+    font-size: 22px; 
+}
+
+nav ul li a {
+    color: #5fcf80;
+    text-decoration: none;
+}
+
+nav ul li a:link {
+    color: #5fcf80; 
+}
+
+nav ul li a:visited {
+    color: g#5fcf80; 
+}
+
+nav ul li a:hover {
+    color: #707070; 
+    text-decoration: underline; 
+}
+
+nav ul li a:active {
+    color: #5fcf80; 
+}
+
+/* ID */
+
+
+/* CLASS */
 
 .container {
     margin: 0 auto; 
     width: 50%; 
 }
 
-ul li {
-    font-size: 22px; 
+.centerText {
+    text-align: center; 
 }
