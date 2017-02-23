@@ -1,3 +1,5 @@
 <div class="centerText">
-  <h1>Player Two</h1>
+  <h1>Player One</h1>
+  <input type="text" [(ngModel)]="newItem" (keydown.enter)="checkEntry()" placeholder="Can You Guess?">
+  <h1>Current Number of Guesses: {{numberOfTries}}</h1><hr>
 </div>
