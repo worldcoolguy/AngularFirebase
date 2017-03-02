@@ -39,6 +39,11 @@ export class PlayeroneComponent implements OnInit {
     });
   }
   checkEntry() {
+    this.items.forEach(element => {
+      for (let i = 0; i < element.length; i++) {
+        console.log(element[i]);
+      }
+    });
     if (this.newItem != '') {
       this.numberOfTries++; 
     } 

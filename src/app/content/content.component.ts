@@ -13,6 +13,18 @@ export class ContentComponent implements OnInit {
   playertwo:FirebaseListObservable<any[]>; 
   newItem = ''; 
   numberOfTries = 0; 
+  questionOne = {
+      1:'atari',
+      2:'apple',
+      3:'microsoft', 
+      4:'nintendo'
+    };
+  questionTwo = {
+      1:'john papa', 
+      2:'steve jobs', 
+      3:'douglas engelbart',
+      4:'donald trump'
+    };
 
   constructor(private af: AngularFire) { 
     this.items = this.af.database.list('/items'); 
@@ -26,6 +38,7 @@ export class ContentComponent implements OnInit {
       // matches anwser value stored 
       // in the database
       for (let i = 0; i < element.length; i++) {
+        // Guessed question correct
         if (element[3].$value == this.newItem.toLowerCase() && this.newItem !== '') {
           this.numberOfTries = 0; 
           this.newItem = '';  
@@ -39,13 +52,14 @@ export class ContentComponent implements OnInit {
       }
     });
   }
-  checkEntry() {
+  checkEntry() { 
     if (this.newItem != '') {
       this.numberOfTries++; 
     } 
     this.items.push(''); 
   }
   reset() {
+    console.log(this.question); 
     this.playerone.remove(''); 
     this.playerone.push(0);
     this.playertwo.remove(''); 
