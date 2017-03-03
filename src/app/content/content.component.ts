@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 // import { Observable } from 'rxjs';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-content',
@@ -26,10 +27,11 @@ export class ContentComponent implements OnInit {
       4:'donald trump'
     };
 
-  constructor(private af: AngularFire) { 
+  constructor(private af: AngularFire, public toastr: ToastsManager, vcr: ViewContainerRef) { 
     this.items = this.af.database.list('/items'); 
     this.playerone = this.af.database.list('/playerone'); 
     this.playertwo = this.af.database.list('/playertwo'); 
+    this.toastr.setRootViewContainerRef(vcr); 
   }
 
   ngOnInit() {
@@ -59,7 +61,7 @@ export class ContentComponent implements OnInit {
     this.items.push(''); 
   }
   reset() {
-    console.log(this.question); 
+    this.toastr.info('Your game has been reset.');
     this.playerone.remove(''); 
     this.playerone.push(0);
     this.playertwo.remove(''); 

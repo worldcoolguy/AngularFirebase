@@ -12,6 +12,7 @@ import { PlayeroneComponent } from './playerone/playerone.component';
 import { PlayertwoComponent } from './playertwo/playertwo.component';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule, routingComponents } from './app.routing';
+import { ToastModule } from 'ng2-toastr/ng2-toastr'; 
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { AppRoutingModule, routingComponents } from './app.routing';
     HttpModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    BrowserModule, 
+    ToastModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
