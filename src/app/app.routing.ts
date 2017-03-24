@@ -6,11 +6,11 @@ import { PlayertwoComponent } from './playertwo/playertwo.component';
 import { ContentComponent } from './content/content.component'; 
 
 const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'home' },
-
+    { path: '', redirectTo: '/home', pathMatch: 'full'  },
     { path: 'playerone', component: PlayeroneComponent },
     { path: 'playertwo', component: PlayertwoComponent },
     { path: 'home', component: ContentComponent },
+    { path: '**', component: ContentComponent}
 ];
 
 @NgModule({
@@ -20,4 +20,4 @@ const routes: Routes = [
 
 export class AppRoutingModule {}
 
-export const routingComponents = [ PlayeroneComponent, PlayertwoComponent ]
+export const routingComponents = [ PlayeroneComponent, PlayertwoComponent, ContentComponent]
