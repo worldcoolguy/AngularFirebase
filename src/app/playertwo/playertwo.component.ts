@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -14,13 +15,16 @@ export class PlayertwoComponent implements OnInit {
   newItem = ''; 
   numberOfTries = 0; 
 
-  constructor(private af: AngularFire, public toastr: ToastsManager, vcr: ViewContainerRef) { 
+  constructor(private af: AngularFire, public toastr: ToastsManager, vcr: ViewContainerRef, private titleService: Title) { 
     this.items = this.af.database.list('/items'); 
     this.playertwo = this.af.database.list('/playertwo'); 
     this.toastr.setRootViewContainerRef(vcr); 
   }
 
   ngOnInit() {
+    // set title for the page
+    this.titleService.setTitle('Player Two');
+
     this.items.forEach(element => {
       // check to see if input value 
       // matches anwser value stored 
